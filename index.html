@@ -1,3 +1,189 @@
-<h1><b>Smegmasum</b></h1>
-<br>
-<h2>Dedicated to my friend Gelo who is not among us anymore (sus)</h2>
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>In Memoria di Gelo</title>
+  <style>
+    :root {
+      --bg-color: #0f172a;
+      --card-bg: #1e293b;
+      --accent-color: #38bdf8;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --border-color: #334155;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      margin: 0;
+      padding: 2rem 1rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 800px;
+      width: 100%;
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 2.5rem;
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.5);
+      text-align: center;
+    }
+
+    h1 {
+      color: var(--accent-color);
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .subtitle {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      font-style: italic;
+      margin-top: 0;
+      margin-bottom: 2rem;
+    }
+
+    .subtitle .sus-tag {
+      color: #ef4444;
+      font-weight: bold;
+      font-style: normal;
+    }
+
+    .bio {
+      font-size: 1.15rem;
+      line-height: 1.7;
+      background: rgba(255, 255, 255, 0.03);
+      padding: 1.5rem;
+      border-radius: 12px;
+      border-left: 4px solid var(--accent-color);
+      margin-bottom: 2.5rem;
+      text-align: left;
+    }
+
+    /* Slot per le Immagini */
+    .photo-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .photo-card {
+      border: 2px dashed var(--border-color);
+      border-radius: 12px;
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 220px;
+      background: rgba(15, 23, 42, 0.6);
+      transition: border-color 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .photo-card:hover {
+      border-color: var(--accent-color);
+    }
+
+    .photo-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 8px;
+      display: none;
+    }
+
+    .photo-card input[type="file"] {
+      display: none;
+    }
+
+    .upload-btn {
+      background-color: var(--accent-color);
+      color: #0f172a;
+      font-weight: 600;
+      padding: 0.6rem 1.2rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.2s ease, transform 0.1s ease;
+      margin-top: 0.5rem;
+    }
+
+    .upload-btn:hover {
+      background-color: #7dd3fc;
+      transform: translateY(-1px);
+    }
+
+    .placeholder-text {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Smegmasum</h1>
+    <p class="subtitle">
+      Dedicated to my friend Gelo who is not among us anymore 
+      <span class="sus-tag">(sus)</span>
+    </p>
+
+    <div class="bio">
+      Gelo was born in a strange place with hairy oily black men, but this did not stop him to become the first asian lesbian to become president of Ottaviano.
+    </div>
+
+    <!-- Slot per due foto -->
+    <div class="photo-gallery">
+      <!-- Slot 1 -->
+      <div class="photo-card" id="card1">
+        <span class="placeholder-text">Foto 1 di Gelo</span>
+        <img id="img1" alt="Foto 1 di Gelo">
+        <label class="upload-btn" for="input1">Carica Foto</label>
+        <input type="file" id="input1" accept="image/*" onchange="previewImage(event, 'img1', 'card1')">
+      </div>
+
+      <!-- Slot 2 -->
+      <div class="photo-card" id="card2">
+        <span class="placeholder-text">Foto 2 di Gelo</span>
+        <img id="img2" alt="Foto 2 di Gelo">
+        <label class="upload-btn" for="input2">Carica Foto</label>
+        <input type="file" id="input2" accept="image/*" onchange="previewImage(event, 'img2', 'card2')">
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function previewImage(event, imgId, cardId) {
+      const file = event.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          const img = document.getElementById(imgId);
+          img.src = e.target.result;
+          img.style.display = 'block';
+          
+          // Nasconde testo placeholder dopo il caricamento
+          const card = document.getElementById(cardId);
+          const placeholder = card.querySelector('.placeholder-text');
+          if (placeholder) placeholder.style.display = 'none';
+        }
+        reader.readAsDataURL(file);
+      }
+    }
+  </script>
+
+</body>
+</html>
