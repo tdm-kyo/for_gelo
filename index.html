@@ -5,122 +5,68 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>In Memoria di Gelo</title>
   <style>
-    :root {
-      --bg-color: #0f172a;
-      --card-bg: #1e293b;
-      --accent-color: #38bdf8;
-      --text-main: #f8fafc;
-      --text-muted: #94a3b8;
-      --border-color: #334155;
-    }
-
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: var(--bg-color);
-      color: var(--text-main);
+      background-color: #121212;
+      color: #e0e0e0;
+      font-family: Arial, sans-serif;
       margin: 0;
       padding: 2rem 1rem;
       display: flex;
       justify-content: center;
-      align-items: center;
-      min-height: 100vh;
     }
 
     .container {
-      max-width: 800px;
+      max-width: 700px;
       width: 100%;
-      background: var(--card-bg);
-      border: 1px solid var(--border-color);
-      border-radius: 16px;
-      padding: 2.5rem;
-      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.5);
       text-align: center;
     }
 
     h1 {
-      color: var(--accent-color);
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
-      letter-spacing: 1px;
-      text-transform: uppercase;
+      color: #ffffff;
+      margin-bottom: 0.2rem;
     }
 
     .subtitle {
-      font-size: 1.1rem;
-      color: var(--text-muted);
+      color: #888888;
       font-style: italic;
       margin-top: 0;
-      margin-bottom: 2rem;
+      margin-bottom: 1.5rem;
     }
 
-    .subtitle .sus-tag {
-      color: #ef4444;
-      font-weight: bold;
+    .subtitle .sus {
+      color: #ff5555;
       font-style: normal;
+      font-weight: bold;
     }
 
     .bio {
-      font-size: 1.15rem;
-      line-height: 1.7;
-      background: rgba(255, 255, 255, 0.03);
-      padding: 1.5rem;
-      border-radius: 12px;
-      border-left: 4px solid var(--accent-color);
-      margin-bottom: 2.5rem;
+      background-color: #1e1e1e;
+      padding: 1rem;
+      border-radius: 8px;
+      line-height: 1.5;
+      margin-bottom: 2rem;
       text-align: left;
     }
 
-    /* Griglia Slot per le 2 foto JPEG */
-    .photo-gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
-      margin-top: 1.5rem;
-    }
-
-    .photo-card {
-      border: 2px dashed var(--border-color);
-      border-radius: 12px;
-      padding: 1rem;
+    .gallery {
       display: flex;
-      flex-direction: column;
-      align-items: center;
+      gap: 1rem;
       justify-content: center;
-      min-height: 250px;
-      background: rgba(15, 23, 42, 0.6);
-      transition: border-color 0.3s ease;
     }
 
-    .photo-card:hover {
-      border-color: var(--accent-color);
+    .photo-frame {
+      flex: 1;
+      aspect-ratio: 3 / 4; /* Formato verticale */
+      background-color: #1e1e1e;
+      border-radius: 8px;
+      overflow: hidden;
     }
 
-    .photo-card img {
+    .photo-frame img {
       width: 100%;
-      height: 220px;
+      height: 100%;
       object-fit: cover;
-      border-radius: 8px;
-    }
-
-    .photo-card input[type="file"] {
-      display: none;
-    }
-
-    .upload-btn {
-      background-color: var(--accent-color);
-      color: #0f172a;
-      font-weight: 600;
-      padding: 0.5rem 1rem;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: background-color 0.2s ease, transform 0.1s ease;
-      margin-top: 0.75rem;
-      font-size: 0.9rem;
-    }
-
-    .upload-btn:hover {
-      background-color: #7dd3fc;
-      transform: translateY(-1px);
+      display: block;
     }
   </style>
 </head>
@@ -128,46 +74,21 @@
 
   <div class="container">
     <h1>Smegmasum</h1>
-    <p class="subtitle">
-      Dedicated to my friend Gelo who is not among us anymore 
-      <span class="sus-tag">(sus)</span>
-    </p>
+    <p class="subtitle">Dedicated to my friend Gelo who is not among us anymore <span class="sus">(sus)</span></p>
 
     <div class="bio">
       Gelo was born in a strange place with hairy oily black men, but this did not stop him to become the first asian lesbian to become president of Ottaviano.
     </div>
 
-    <!-- Slot per le 2 foto JPEG -->
-    <div class="photo-gallery">
-      <!-- Foto 1 (.jpeg) -->
-      <div class="photo-card">
-        <img id="img1" src="img1.jpeg" alt="Foto JPEG 1 di Gelo" onerror="this.src='https://via.placeholder.com/400x300?text=gelo1.jpeg+non+trovata'">
-        <label class="upload-btn" for="input1">Cambia gelo1.jpeg</label>
-        <input type="file" id="input1" accept="image/jpeg, image/jpg" onchange="previewImage(event, 'img1')">
+    <div class="gallery">
+      <div class="photo-frame">
+        <img src="gelo1.jpeg" alt="Gelo 1" onerror="this.style.display='none'">
       </div>
-
-      <!-- Foto 2 (.jpeg) -->
-      <div class="photo-card">
-        <img id="img2" src="img2.jpeg" alt="Foto JPEG 2 di Gelo" onerror="this.src='https://via.placeholder.com/400x300?text=gelo2.jpeg+non+trovata'">
-        <label class="upload-btn" for="input2">Cambia gelo2.jpeg</label>
-        <input type="file" id="input2" accept="image/jpeg, image/jpg" onchange="previewImage(event, 'img2')">
+      <div class="photo-frame">
+        <img src="gelo2.jpeg" alt="Gelo 2" onerror="this.style.display='none'">
       </div>
     </div>
   </div>
-
-  <script>
-    function previewImage(event, imgId) {
-      const file = event.target.files[0];
-      if (file) {
-        const reader = new FileReader();
-        reader.onload = function(e) {
-          const img = document.getElementById(imgId);
-          img.src = e.target.result;
-        }
-        reader.readAsDataURL(file);
-      }
-    }
-  </script>
 
 </body>
 </html>
