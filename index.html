@@ -52,6 +52,7 @@
       display: flex;
       gap: 1rem;
       justify-content: center;
+      margin-bottom: 1rem;
     }
 
     .photo-frame {
@@ -62,7 +63,21 @@
       overflow: hidden;
     }
 
-    .photo-frame img {
+    /* Nuova galleria per la foto orizzontale */
+    .gallery-wide {
+      display: flex;
+      justify-content: center;
+    }
+
+    .photo-frame-wide {
+      width: 100%;
+      aspect-ratio: 16 / 9; /* Formato orizzontale */
+      background-color: #1e1e1e;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .photo-frame img, .photo-frame-wide img {
       width: 100%;
       height: 100%;
       object-fit: cover;
@@ -88,6 +103,7 @@
       <p>REST IN POWER</p>
     </div>
 
+    <!-- Galleria foto verticali -->
     <div class="gallery">
       <div class="photo-frame">
         <img src="gelo1.jpeg" alt="Gelo 1" onerror="this.style.display='none'">
@@ -96,15 +112,16 @@
         <img src="gelo2.jpeg" alt="Gelo 2" onerror="this.style.display='none'">
       </div>
       <div class="photo-frame">
-        <img src="gelo3.jpg" alt="Gelo 2" onerror="this.style.display='none'">
+        <img src="gelo3.jpg" alt="Gelo 3" onerror="this.style.display='none'">
       </div>
     </div>
-  </div>
-  <br>
-      <div class="gallery">
-      <div class="photo-frame">
-        <img src="gelo4.jpg" alt="Gelo 1" onerror="this.style.display='none'">
+
+    <!-- Nuova foto orizzontale sotto la galleria -->
+    <div class="gallery-wide">
+      <div class="photo-frame-wide">
+        <img src="gelo4.jpg" alt="Gelo 4" onerror="this.style.display='none'">
       </div>
+    </div>
   </div>
 
 </body>
