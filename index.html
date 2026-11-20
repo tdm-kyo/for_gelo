@@ -50,13 +50,15 @@
 
     .gallery {
       display: flex;
+      flex-wrap: wrap;
       gap: 1rem;
       justify-content: center;
       margin-bottom: 1rem;
     }
 
     .photo-frame {
-      flex: 1;
+      flex: 1 1 calc(50% - 0.5rem);
+      min-width: 180px;
       aspect-ratio: 3 / 4; /* Formato verticale */
       background-color: #1e1e1e;
       border-radius: 8px;
@@ -78,7 +80,7 @@
       overflow: hidden;
     }
 
-    /* Sezione finale per gelo5 */
+    /* Sezione finale per foto singole e video */
     .section-footer {
       background-color: #1e1e1e;
       padding: 1rem;
@@ -95,12 +97,35 @@
       overflow: hidden;
     }
 
+    .video-frame {
+      width: 100%;
+      margin: 0 auto 1rem auto;
+      background-color: #2a2a2a;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .video-frame video {
+      width: 100%;
+      max-height: 500px;
+      display: block;
+    }
+
     .caption {
       color: #cccccc;
       font-size: 0.95rem;
       line-height: 1.4;
       font-style: italic;
       margin: 0;
+    }
+
+    .legend-line {
+      display: block;
+      text-align: center;
+      font-weight: bold;
+      font-style: normal;
+      color: #ffffff;
+      margin-top: 0.4rem;
     }
 
     .photo-frame img, .photo-frame-wide img, .photo-frame-vertical-single img {
@@ -149,8 +174,8 @@
       </div>
     </div>
 
-<div class="section-footer">
-      <!-- Contenitore che affianca le due foto -->
+    <!-- Sezione Cugel Tolo -->
+    <div class="section-footer">
       <div class="gallery">
         <div class="photo-frame">
           <img src="gelo5.jpeg" alt="Cugel Tolo 1" onerror="this.style.display='none'">
@@ -158,9 +183,15 @@
         <div class="photo-frame">
           <img src="gelo7.jpeg" alt="Cugel Tolo 2" onerror="this.style.display='none'">
         </div>
+        <div class="photo-frame">
+          <img src="gelo11.jpeg" alt="Cugel Tolo 3" onerror="this.style.display='none'">
+        </div>
+        <div class="photo-frame">
+          <img src="gelo10.jpeg" alt="Cugel Tolo 4" onerror="this.style.display='none'">
+        </div>
       </div>
-      
-      <!-- Descrizione unica per entrambe -->
+
+      <!-- Descrizione unica per tutte -->
       <p class="caption">"In the photo we can see gelo's cousin from india Cugel Tolo, he appear very sad for the sudden disappear of his cousin who fought for the civil right of brown people"</p>
     </div>
 
@@ -173,7 +204,7 @@
 
     <div class="section-footer">
       <div class="photo-frame-vertical-single">
-        <img src="gelo8.jpeg" alt="rain" onerror="this.style.display='none'">
+        <img src="gelo8.jpeg" alt="meal" onerror="this.style.display='none'">
       </div>
       <p class="caption">"The big G enjoying one of his last meal before his premature passing"</p>
     </div>
@@ -184,8 +215,27 @@
       </div>
       <p class="caption">"My boy Gelo in one of his day in his beloved USA, with his gay best friends"</p>
     </div>
-    
-  </div> 
+
+    <!-- Nuova sezione gelo12.jpeg -->
+    <div class="section-footer">
+      <div class="photo-frame-vertical-single">
+        <img src="gelo12.jpeg" alt="gadget" onerror="this.style.display='none'">
+      </div>
+      <p class="caption">"To support the funeral cost buy gadget like this"</p>
+    </div>
+
+    <!-- Nuova sezione video gelo.mp4 -->
+    <div class="section-footer">
+      <div class="video-frame">
+        <video controls>
+          <source src="gelo.mp4" type="video/mp4">
+          Il tuo browser non supporta la riproduzione video.
+        </video>
+      </div>
+      <p class="caption">"The day the Big G almost fell in love, he then found out she was 14, he did't back off. <span class="legend-line">THE LEGEND</span>"</p>
+    </div>
+
+  </div>
 
 </body>
 </html>
